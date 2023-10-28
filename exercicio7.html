@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+    <link rel="icon" type="image/x-icon" href="img/letram.png">
+    <title>Exercicio 7</title>
+</head>
+<body>
+     <!--NAV BAR COMEÇO-->   
+   <nav class="navbar bg-dark border-bottom border-body" data-bs-theme="dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="menubootstrap.html">Home</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#">IDK</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">IDK</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Dropdown
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="#">Action</a></li>
+              <li><a class="dropdown-item" href="#">Another action</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item" href="#">Something else here</a></li>
+            </ul>
+          </li>
+            </ul>
+      </div>
+    </div>
+  </nav>
+<!--NAV BAR FIM-->
+    <h1>Manipulação de Vetor</h1>
+    <label for="valor">Inserir valor:</label>
+    <input type="number" id="valor">
+    <button onclick="inserirValor()">Inserir Valor</button>
+    <button onclick="mostrarValores()">Mostrar Todos os Valores</button>
+    <button onclick="mostrarMaiorValor()">Maior Valor</button>
+    <button onclick="mostrarMenorValor()">Menor Valor</button>
+    <p>Valores Inseridos:</p>
+    <ul id="valoresInseridos"></ul>
+    <p>Maior Valor:</p>
+    <div id="maiorValor"></div>
+    <p>Menor Valor:</p>
+    <div id="menorValor"></div>
+
+    <script>
+        const valores = [];
+
+        function inserirValor() {
+            const valor = parseFloat(document.getElementById("valor").value);
+            valores.push(valor);
+            document.getElementById("valor").value = "";
+        }
+
+        function mostrarValores() {
+            const valoresInseridosElement = document.getElementById("valoresInseridos");
+            valoresInseridosElement.innerHTML = "";
+            for (const valor of valores) {
+                const li = document.createElement("li");
+                li.textContent = valor;
+                valoresInseridosElement.appendChild(li);
+            }
+        }
+
+        function mostrarMaiorValor() {
+            if (valores.length === 0) {
+                alert("Nenhum valor inserido ainda.");
+                return;
+            }
+            const maiorValor = Math.max(...valores);
+            document.getElementById("maiorValor").textContent = `Maior Valor: ${maiorValor}`;
+        }
+
+        function mostrarMenorValor() {
+            if (valores.length === 0) {
+                alert("Nenhum valor inserido ainda.");
+                return;
+            }
+            const menorValor = Math.min(...valores);
+            document.getElementById("menorValor").textContent = `Menor Valor: ${menorValor}`;
+        }
+    </script>   
+</body>
+</html>
