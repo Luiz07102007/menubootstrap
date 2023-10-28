@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+    <link rel="icon" type="image/x-icon" href="img/letram.png">
+    <title>Exercicio 5</title>
+</head>
+<body>
+     <!--NAV BAR COMEÇO-->   
+   <nav class="navbar bg-dark border-bottom border-body" data-bs-theme="dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="menubootstrap.html">Home</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#">IDK</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">IDK</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Dropdown
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="#">Action</a></li>
+              <li><a class="dropdown-item" href="#">Another action</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item" href="#">Something else here</a></li>
+            </ul>
+          </li>
+            </ul>
+      </div>
+    </div>
+  </nav>
+<!--NAV BAR FIM-->
+    <h1>Calculadora de Peso Ideal</h1>
+    <label for="altura">Altura (em metros):</label>
+    <input type="number" id="altura">
+    <label for="sexo">Sexo:</label>
+    <select id="sexo">
+        <option value="masculino">Masculino</option>
+        <option value="feminino">Feminino</option>
+    </select>
+    <button onclick="calcularPesoIdeal()">Calcular Peso Ideal</button>
+    <p>Peso ideal:</p>
+    <div id="pesoIdeal"></div>
+
+    <script>
+        function calcularPesoIdeal() {
+            const altura = parseFloat(document.getElementById("altura").value);
+            const sexo = document.getElementById("sexo").value;
+            let pesoIdeal;
+
+            if (sexo === "masculino") {
+                pesoIdeal = (72.7 * altura) - 58;
+            } else if (sexo === "feminino") {
+                pesoIdeal = (62.1 * altura) - 44.7;
+            } else {
+                alert("Por favor, selecione um sexo válido.");
+                return;
+            }
+
+            const pesoIdealElement = document.getElementById("pesoIdeal");
+            pesoIdealElement.textContent = `Peso ideal: ${pesoIdeal.toFixed(2)} kg`;
+        }
+    </script>
+</body>
+</html>

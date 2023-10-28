@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="img/letram.png">
+    <title>Exercicio 2</title>
+</head>
+<body>
+<!--NAV BAR COMEÇO-->   
+<nav class="navbar bg-dark border-bottom border-body" data-bs-theme="dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="menubootstrap.html">Home</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#">IDK</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">IDK</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Dropdown
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="#">Action</a></li>
+              <li><a class="dropdown-item" href="#">Another action</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item" href="#">Something else here</a></li>
+            </ul>
+          </li>
+            </ul>
+      </div>
+    </div>
+  </nav>
+<!--NAV BAR FIM-->
+
+    <h1>Conversor de Temperatura</h1>
+    <p>Informe a temperatura em graus Celsius:</p>
+    <input type="number" id="tempCelsius">
+    <button onclick="converterParaFahrenheit()">Converter para Fahrenheit</button>
+    <button onclick="converterParaCelsius()">Converter para Celsius</button>
+    <p>Temperatura convertida:</p>
+    <div id="temperaturaConvertida"></div>
+
+    <script>
+        function converterParaFahrenheit() {
+            const tempCelsius = parseFloat(document.getElementById("tempCelsius").value);
+            const tempFahrenheit = (tempCelsius * 9/5) + 32;
+
+            const temperaturaConvertida = document.getElementById("temperaturaConvertida");
+            temperaturaConvertida.textContent = `${tempCelsius}°C é igual a ${tempFahrenheit.toFixed(2)}°F.`;
+        }
+
+        function converterParaCelsius() {
+            const tempFahrenheit = parseFloat(document.getElementById("tempCelsius").value);
+            const tempCelsius = (tempFahrenheit - 32) * 5/9;
+
+            const temperaturaConvertida = document.getElementById("temperaturaConvertida");
+            temperaturaConvertida.textContent = `${tempFahrenheit}°F é igual a ${tempCelsius.toFixed(2)}°C.`;
+        }
+    </script>
+    </body>
+    </html>
